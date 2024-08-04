@@ -1,5 +1,7 @@
-﻿using Demo.Interfaces;
+﻿using Demo.Cloneable;
+using Demo.Interfaces;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Demo
 {
@@ -387,6 +389,254 @@ namespace Demo
 
             //Console.WriteLine(Names01[0]);
             //Console.WriteLine(Names02[0]);
+
+            #endregion
+
+            #region 7- Buildin interface ICloneable
+
+
+
+            #region Shallow Copy
+            #region String
+            //Employee employee01 = new Employee()
+            //{
+            //    Id = 1,
+            //    Name = "Haji",
+            //    Salary = 10000
+            //};
+
+            //Employee employee02 = new Employee()
+            //{
+            //    Id = 2,
+            //    Name = "Mone",
+            //    Salary = 12000
+            //};
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 01 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("HS Code Employee 01 " + employee01.GetHashCode());
+            ////54267293 //Id = 1 , Name = Haji , Salary = 10000
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 02 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+            //Console.WriteLine("HS Code Employee 02 " + employee02.GetHashCode());
+            ////18643596 //Id = 1 , Name = Haji , Salary = 10000
+
+            //// Deep Copy and shallow copy
+            //employee02 = employee01;
+            ////employee01 now has two reference
+            //// Shallow copy 
+            //// both of them now employee01 and employee02 will refer to the same reference
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Before Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+
+            //employee01.Id = 100;
+            //employee01.Name = "Hamada";
+            //employee01.Salary = 25000;
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== after Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("Employee 02 " + employee02.ToString());  
+            #endregion
+            #region StringBuilder
+            //Employee employee01 = new Employee()
+            //{
+            //    Id = 1,
+            //    Name = new StringBuilder("Haji"),
+            //    Salary = 10000
+            //};
+
+            //Employee employee02 = new Employee()
+            //{
+            //    Id = 2,
+            //    Name = new StringBuilder("Mone"),
+            //    Salary = 12000
+            //};
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 01 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("HS Code Employee 01 " + employee01.GetHashCode());
+            ////54267293 //Id = 1 , Name = Haji , Salary = 10000
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 02 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+            //Console.WriteLine("HS Code Employee 02 " + employee02.GetHashCode());
+            ////18643596 //Id = 1 , Name = Haji , Salary = 10000
+
+            //// Deep Copy and shallow copy
+            //employee02 = employee01;
+            ////employee01 now has two reference
+            //// Shallow copy 
+            //// both of them now employee01 and employee02 will refer to the same reference
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Before Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+
+            //employee01.Id = 100;
+            //employee01.Name.Append(" Hamada");
+            //employee01.Salary = 25000;
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== after Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+            #endregion
+            #endregion
+
+            #region Deep Copy
+
+            // Deep Copy with user defind datatype
+            //1- i must implement the interface IClonable
+            #region String
+            //Employee employee01 = new Employee()
+            //{
+            //    Id = 1,
+            //    Name = "Haji",
+            //    Salary = 10000
+            //};
+
+            //Employee employee02 = new Employee()
+            //{
+            //    Id = 2,
+            //    Name = "Mone",
+            //    Salary = 12000
+            //};
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 01 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("HS Code Employee 01 " + employee01.GetHashCode());
+            ////54267293 //Id = 1 , Name = Haji , Salary = 10000
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 02 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+            //Console.WriteLine("HS Code Employee 02 " + employee02.GetHashCode());
+            ////18643596 //Id = 1 , Name = Haji , Salary = 10000
+
+            //// Deep Copy and shallow copy
+            //employee02 = (Employee) employee01.Clone();
+            ////employee01 now has two reference
+            //// Shallow copy 
+            //// both of them now employee01 and employee02 will refer to the same reference
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Before Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+
+            //employee01.Id = 100;
+            //employee01.Name = "Hamada";
+            //employee01.Salary = 25000;
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== after Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString());
+            //Console.WriteLine("Employee 02 " + employee02.ToString());
+
+            // Created a new object from the previous object and assign it to a new reference 
+            // the deep copy here make a new identity and new object state too and the difference will see again in the stringbuiler
+            // address of the string  we chage the 
+            // create new object and add mone because stirng is immutable
+
+            #endregion
+            #region StringBuilder
+            //Employee employee01 = new Employee()
+            //{
+            //    Id = 1,
+            //    Name = new StringBuilder("Haji"),
+            //    Salary = 10000
+            //};
+
+            //Employee employee02 = new Employee()
+            //{
+            //    Id = 2,
+            //    Name = new StringBuilder("Mone)"),
+            //    Salary = 12000
+            //};
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 01 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString() + " " + " : HS Code" + employee01.GetHashCode());
+            ////54267293 //Id = 1 , Name = Haji , Salary = 10000
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Employee 02 ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 02 " + employee02.ToString()  + " "  + " : HS Code" + employee02.GetHashCode());
+            ////18643596 //Id = 1 , Name = Haji , Salary = 10000
+
+            //// Deep Copy and shallow copy
+            //employee02 = (Employee)employee01.Clone();
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("employee02 = (Employee)employee01.Clone();");
+            ////employee01 now has two reference
+            //// Shallow copy 
+            //// both of them now employee01 and employee02 will refer to the same reference
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== Before Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString() + " " + " : HS Code" + employee01.GetHashCode());
+
+            //Console.WriteLine("Employee 02 " + employee02.ToString() + " "  + " : HS Code" + employee02.GetHashCode());
+
+
+
+
+            //employee01.Id = 100;
+            //employee01.Name.Append(" Hamada");
+            //employee01.Salary = 25000;
+
+            //Console.WriteLine("==============================");
+            //Console.WriteLine(" ======== after Change Value ========");
+            //Console.WriteLine("==============================");
+            //Console.WriteLine("Employee 01 " + employee01.ToString() + " " + " : HS Code" + employee01.GetHashCode());
+            //Console.WriteLine("Employee 02 " + employee02.ToString() + " " + " : HS Code" + employee02.GetHashCode());
+            #endregion
+
+            // 2- Copy Constructor
+
+            //Employee employee01 = new Employee()
+            //{
+            //    Id = 1,
+            //    Name = "Hajajii",
+            //    Salary = 5000
+            //};
+
+            //Employee employee02 = new Employee()
+            //{
+            //    Id = 1,
+            //    Name = "Mona",
+            //    Salary = 1000
+            //};
+
+            ////employee02 = new Employee(employee01);
+            //employee02 = (Employee) employee01.Clone();
+
+            //Console.WriteLine(employee01);
+            //Console.WriteLine(employee02);
+
+            #endregion
+
+            #endregion
+
+            #region MyRegion
 
             #endregion
 

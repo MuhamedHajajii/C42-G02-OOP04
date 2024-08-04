@@ -17,7 +17,7 @@ namespace Demo.Interfaces
         // Compiler will generate private hidden attribute [backing field]
         // i can add more signature for the properties and the methods but but must implement it first 
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public void MyFun(int x)
         {
