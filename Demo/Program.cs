@@ -124,6 +124,103 @@ namespace Demo
 
             #region 5- Deep Copy And Shallow Copy
 
+            /** Shallow Copy and Deep Copy 
+             * Take a copy from something
+             * it happen with the reference type
+             * The Elments inside the array value type or reference type 
+             */
+
+            // Array of value type
+            //int[] Arr01 = { 1, 2, 3 };
+            //int[] Arr02 = new int[3]; // {0,0,0}
+
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("Befor The Shallow Copy");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01 = {Arr01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"Arr02 = {Arr02.GetHashCode()}"); //18643596
+
+            //Arr02 = Arr01; // Shallow Copy [Stack] surface copy both of them refer for the same object
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("After The Shallow Copy");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01 = {Arr01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"Arr02 = {Arr02.GetHashCode()}"); //54267293            
+
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("Before Change The Value of Arr01[0]");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");
+            //Console.WriteLine($"Arr02[0] = {Arr02[0]}");
+
+            //Arr01[0] = 100;
+
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("After Change The Value of Arr01[0]");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");
+            //Console.WriteLine($"Arr02[0] = {Arr02[0]}");
+
+            /**
+             *  Of You Made Any Change in any Array it will reflect on the other 
+             *  because the both ref refer to the same object 
+             *  and make an unreachable array in the heap
+             *  It Happen only the stack with the references
+             */
+
+            // Deep Copy to get a copy from the heap not in the stack
+            // You make a build in method called clone 
+
+            //Array of value type
+            int[] Arr01 = { 1, 2, 3 };
+            int[] Arr02 = new int[3]; // {0,0,0}
+            // Clone => DeepCoty
+            // Deep Copy Occurred At Heap 
+            // Create New object with different and new identity
+            // that object will be the same object the same object state [Data] of the calles
+            // return to an object 
+            // its not know which object it will return so i must declare that i will return the object as the data type or the reciver
+
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("Befor The Deep Copy");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01 = {Arr01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"Arr02 = {Arr02.GetHashCode()}"); //18643596
+
+            //Arr02 = (int[])Arr01.Clone();
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("After The Deep Copy");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01 = {Arr01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"Arr02 = {Arr02.GetHashCode()}"); //33574638
+
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("Before Change The Value of Arr01[0]");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");
+            //Console.WriteLine($"Arr02[0] = {Arr02[0]}");
+
+            //Arr01[0] = 100;
+
+            //Console.WriteLine("===============================");
+            //Console.WriteLine("After Change The Value of Arr01[0]");
+            //Console.WriteLine("===============================");
+
+            //Console.WriteLine($"Arr01[0] = {Arr01[0]}");
+            //Console.WriteLine($"Arr02[0] = {Arr02[0]}");
+            
+            /** Summary:
+             * Shallow Copy Works in the stack works in the Identity of the object works on the reference of the object [Address]
+             * Deep Copy Workds in the Object State Workds on the data of the object workds on the heap
+             */
+
             #endregion
 
         }
