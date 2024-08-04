@@ -122,7 +122,7 @@ namespace Demo
              */
             #endregion
 
-            #region 5- Deep Copy And Shallow Copy
+            #region 4- Deep Copy And Shallow Copy for the value type
 
             /** Shallow Copy and Deep Copy 
              * Take a copy from something
@@ -178,12 +178,12 @@ namespace Demo
             //Array of value type
             int[] Arr01 = { 1, 2, 3 };
             int[] Arr02 = new int[3]; // {0,0,0}
-            // Clone => DeepCoty
-            // Deep Copy Occurred At Heap 
-            // Create New object with different and new identity
-            // that object will be the same object the same object state [Data] of the calles
-            // return to an object 
-            // its not know which object it will return so i must declare that i will return the object as the data type or the reciver
+                                      // Clone => DeepCoty
+                                      // Deep Copy Occurred At Heap 
+                                      // Create New object with different and new identity
+                                      // that object will be the same object the same object state [Data] of the calles
+                                      // return to an object 
+                                      // its not know which object it will return so i must declare that i will return the object as the data type or the reciver
 
             //Console.WriteLine("===============================");
             //Console.WriteLine("Befor The Deep Copy");
@@ -215,11 +215,100 @@ namespace Demo
 
             //Console.WriteLine($"Arr01[0] = {Arr01[0]}");
             //Console.WriteLine($"Arr02[0] = {Arr02[0]}");
-            
+
             /** Summary:
              * Shallow Copy Works in the stack works in the Identity of the object works on the reference of the object [Address]
              * Deep Copy Workds in the Object State Workds on the data of the object workds on the heap
              */
+
+            #endregion
+
+            #region 5- Deeo Coy And Shallow Copy For The Rerference Type
+
+            // Array of string [Immutable Type]
+
+            string[] Names01 = { "Omar" };
+            string[] Names02 = new string[1]; // {null}
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code for Names02 = {Names02.GetHashCode()}"); //18643596
+
+            //Names02 = Names01; // Shallow Copy
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code for Names02 = {Names02.GetHashCode()}"); //54267293
+
+            //// Now The second will be unreachable object and the changes happen in the stack both of the refer to the same address now of the first array
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before Change Vlaues");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01[0]}"); // Omar
+            //Console.WriteLine($"HS Code for Names02 = {Names02[0]}"); // Omar
+
+            //Names01[0] = "Aya";
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After Change Vlaues");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01[0]}"); // Aya
+            //Console.WriteLine($"HS Code for Names02 = {Names02[0]}"); // Aya
+
+            // shallow copy in the stack the both still refer to the same object [array of address] because its string immutable type and this will create new object for aya and the same address will hold it too
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before Deep Copy");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code for Names02 = {Names02.GetHashCode()}"); //18643596
+
+            //Names02 = (string[])Names01.Clone(); // Shallow Copy
+
+            //// Create New Object with new differenct identity [new reference]
+            //// this object will has the same object state [same data]
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code for Names02 = {Names02.GetHashCode()}"); //54267293
+
+            //// Now The second will be unreachable object and the changes happen in the stack both of the refer to the same address now of the first array
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before Change Vlaues");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01[0]}"); // Omar
+            //Console.WriteLine($"HS Code for Names02 = {Names02[0]}"); // Omar
+
+            //Names01[0] = "Aya";
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After Change Vlaues");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code for Names01 = {Names01[0]}"); // Aya
+            //Console.WriteLine($"HS Code for Names02 = {Names02[0]}"); // Aya
+
+            // now the copy make a deep copy and create new object identity and new object state
+            // but in the same time it make a shallow copy for the state 
+            // and the array of reference will still hold the same reference 
+            // but because its a string and string is a immutable type it will create new object or new state for the string when you chagne it 
+            // but with the string builder it will change in the same ref so changes will appear 
+
 
             #endregion
 
