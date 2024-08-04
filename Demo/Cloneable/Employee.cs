@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.Cloneable
 {
-    internal class Employee : ICloneable
+    internal class Employee : ICloneable,IComparable
     {
         public int Id { get; set; }
 
@@ -38,5 +38,20 @@ namespace Demo.Cloneable
             return $"Id = {Id} , Name = {Name} , Salary = {Salary}";
         }
 
+        public int CompareTo(object? obj)
+        {
+            // return this.salary > obj.salary +Ve
+            // return this.salary < obj.salary -Ve
+            // return this.salary == obj.salary 0
+
+            Employee PassEmployee = (Employee)obj!;
+
+            if(this.Salary > PassEmployee.Salary)
+                return 1;
+            else if (this.Salary < PassEmployee.Salary)
+                return -1;
+            else return 0;
+
+        }
     }
 }

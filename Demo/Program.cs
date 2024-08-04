@@ -179,8 +179,8 @@ namespace Demo
             // You make a build in method called clone 
 
             //Array of value type
-            int[] Arr01 = { 1, 2, 3 };
-            int[] Arr02 = new int[3]; // {0,0,0}
+            //int[] Arr01 = { 1, 2, 3 };
+            //int[] Arr02 = new int[3]; // {0,0,0}
                                       // Clone => DeepCoty
                                       // Deep Copy Occurred At Heap 
                                       // Create New object with different and new identity
@@ -636,7 +636,45 @@ namespace Demo
 
             #endregion
 
-            #region MyRegion
+            #region 8- ICompareable
+            //int[] Numbers = { 7,4,1,8,5,2,9,6,3};  
+            //int[] Numbers02 = { 7,4,1,8,5,2,9,6,3};  
+            //// Sorting in asecending order with the buble sort
+            //Array.Sort(Numbers);
+
+            //for(int i = 0; i < Numbers02.Length - 1; i++)
+            //{
+            //    for(int j = 0; j < Numbers02.Length - 1; j++)
+            //    {
+            //        if (Numbers02[j] > Numbers02[j + 1])
+            //        {
+            //            int swap = Numbers02[j];
+            //            Numbers02[j] = Numbers02[j + 1];
+            //            Numbers02[j + 1] = swap;
+            //        }
+            //    }
+            //}
+
+            //foreach (int number in Numbers) { Console.Write(number + " "); }
+            //Console.WriteLine();
+            //foreach (int number in Numbers02) { Console.Write(number + " "); }
+            //// using ICompareable Implementation
+            //// bubile sort
+            //Console.WriteLine();
+
+            //Employee[] employees = new Employee[4]
+            //{
+            //    new Employee(){ Id = 10, Name = "Hajajii" , Salary = 10000 },
+            //    new Employee(){ Id = 20, Name = "Marwan" , Salary = 40000 },
+            //    new Employee(){ Id = 30, Name = "Marwa" , Salary = 5000 },
+            //    new Employee(){ Id = 40, Name = "Aliaa" , Salary = 60000 }
+            //};
+
+            //Array.Sort(employees);
+            //// i must use the compare to to make the sort know which function to use while sorting 
+            //// i must implement the function 
+
+            foreach (Employee emp in employees) { Console.WriteLine(emp); }
 
             #endregion
 
