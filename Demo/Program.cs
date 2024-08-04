@@ -1,4 +1,5 @@
 ﻿using Demo.Interfaces;
+using System.Text;
 
 namespace Demo
 {
@@ -227,8 +228,8 @@ namespace Demo
 
             // Array of string [Immutable Type]
 
-            string[] Names01 = { "Omar" };
-            string[] Names02 = new string[1]; // {null}
+            //string[] Names01 = { "Omar" };
+            //string[] Names02 = new string[1]; // {null}
 
             //Console.WriteLine("========================");
             //Console.WriteLine("Before");
@@ -309,6 +310,83 @@ namespace Demo
             // but because its a string and string is a immutable type it will create new object or new state for the string when you chagne it 
             // but with the string builder it will change in the same ref so changes will appear 
 
+
+            #endregion
+
+            #region 6- Deep Copy And Shallow copy with reference type with the string builder not the string 
+
+            /* String buidler is an mutable type and immutable type is a string */
+
+            //StringBuilder[] Names01 = new StringBuilder[1];
+            //Names01[0] = new StringBuilder("Omar");
+            //StringBuilder[] Names02 = new StringBuilder[1];
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before Shallow Copy");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code Names02 = {Names02.GetHashCode()}"); //18643596
+
+            //Names02 = Names01; // shallow copy both of them has same identity and refer to the same object
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After Shallow Copy");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code Names02 = {Names02.GetHashCode()}"); //54267293
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before Value");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine(Names01[0]);
+            //Console.WriteLine(Names02[0]);
+
+            //Names02[0].Append(" Amr");
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After Value");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine(Names01[0]);
+            //Console.WriteLine(Names02[0]);
+
+            //StringBuilder[] Names01 = new StringBuilder[1];
+            //Names01[0] = new StringBuilder("Omar");
+            //StringBuilder[] Names02 = new StringBuilder[1];
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before Deep Copy");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code Names02 = {Names02.GetHashCode()}"); //18643596
+
+            //Names02 = (StringBuilder[]) Names01.Clone(); // shallow copy both of them has same identity and refer to the same object
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine($"HS Code Names01 = {Names01.GetHashCode()}"); //54267293
+            //Console.WriteLine($"HS Code Names02 = {Names02.GetHashCode()}"); //54267293
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("Before Value");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine(Names01[0]);
+            //Console.WriteLine(Names02[0]);
+
+            //Names02[0].Append(" Amr");
+
+            //Console.WriteLine("========================");
+            //Console.WriteLine("After Value");
+            //Console.WriteLine("========================");
+
+            //Console.WriteLine(Names01[0]);
+            //Console.WriteLine(Names02[0]);
 
             #endregion
 
