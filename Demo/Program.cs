@@ -674,7 +674,22 @@ namespace Demo
             //// i must use the compare to to make the sort know which function to use while sorting 
             //// i must implement the function 
 
-            foreach (Employee emp in employees) { Console.WriteLine(emp); }
+            //foreach (Employee emp in employees) { Console.WriteLine(emp); }
+
+            #endregion
+
+            #region 9- IComparer
+            //Employee[] employees = new Employee[4]
+            //{
+            //    new Employee(){ Id = 20, Name = "Marwan" , Salary = 40000 },
+            //    new Employee(){ Id = 10, Name = "Hajajii" , Salary = 10000 },
+            //    new Employee(){ Id = 40, Name = "Aliaa" , Salary = 60000 },
+            //    new Employee(){ Id = 30, Name = "Marwa" , Salary = 5000 },
+            //};
+
+            //Array.Sort(employees,new EmployeeIdComperer());
+
+            //foreach (var Emp in employees) Console.WriteLine(Emp);
 
             #endregion
 
